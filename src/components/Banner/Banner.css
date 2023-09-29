@@ -1,0 +1,5 @@
+/* Parte.css */
+.line-divider {
+    border-top: 1px solid #ccc; /* Adjust the color and thickness as needed */
+    margin: 15px 0; /* Adjust the margin to control the spacing above and below the line */
+  }
