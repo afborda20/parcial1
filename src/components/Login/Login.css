@@ -1,0 +1,49 @@
+.login-content {
+    font-family: "inter";
+    font-size: 20px;
+    font-weight: 700;
+    
+}
+
+.login-card {
+
+    background-color: #E0BBBB33; 
+    padding: 20px 150px; 
+    border-radius: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #000; 
+}
+
+.login-container {
+    padding:  10px 280px;
+}
+
+.form-control {
+    background-color: #D9D9D9; 
+}
+
+.green-button {
+    background-color: #8FA98F; 
+    color: white; 
+    font-size: 20px; 
+    padding: 10px 50px; 
+    border-radius: 0px;
+
+}
+
+.red-button {
+    background-color: #E75D5D; 
+    color: white; 
+    font-size: 20px; 
+    padding: 10px 50px; 
+    border-radius: 0px;
+
+}
+
+.error-message {
+
+    font-family: "inter";
+    font-size: 20px;
+    font-weight: 700;
+    color: #CD3232;
+}

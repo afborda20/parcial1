@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Cafe from "../Cafe/Cafe";
 import './Home.css'; 
-import { Link } from "react-router-dom"; 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
@@ -47,29 +46,29 @@ function Home(){
 
   return (
     <Row>
-        <Col>
-        <table className="table">
-            <thead className="thead-dark">
+        <Col className="left-column">
+        <table className= "table-style">
+            <thead className="thead-style">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Tipo</th>
-                <th scope="col">Region</th>
+                <th scope="col">Región</th>
             </tr>
             </thead>
             <tbody>
             {cafes.map((cafe, index) => (
                 <tr key={index} onClick={() => handleCafeClick(cafe)}>
-                <th scope="row">{index + 1}</th>
-                <td>{cafe.nombre}</td>
-                <td>{cafe.tipo}</td>
-                <td>{cafe.region}</td>
-            </tr>
+                  <th scope="row">{index + 1}</th>
+                  <td>{cafe.nombre}</td>
+                  <td>{cafe.tipo}</td>
+                  <td>{cafe.region}</td>
+                </tr>
             ))}
             </tbody>
         </table>
         </Col>
-        <Col>
+        <Col className="right-column">
             <Cafe cafe= {selectedCafe}></Cafe>
         </Col>
 

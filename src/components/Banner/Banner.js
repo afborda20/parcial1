@@ -9,13 +9,13 @@ function Banner(){
 
     return(
 
-        <div className="login center-content">
+        <div>
          <Row>
-            <Col className="title"><h2>El aroma magico</h2></Col>
+            <Col className="banner-title">El aroma mágico</Col>
          </Row>
          <div className="line-divider"></div>
          <Row>
-            <Col> <img src={imagen} alt="Imagen" /></Col>
+            <img src={imagen} fluid className="imagen" alt='imagen'></img> 
          </Row>
          <div className="line-divider"></div>
        </div> 

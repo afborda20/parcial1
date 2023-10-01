@@ -1,0 +1,31 @@
+.thead-style {
+    font-family: "inter";
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #333A40; 
+    color: white;
+
+}
+
+.table-style {
+    width: 100%;
+
+}
+
+
+tr {
+    border-bottom: 1px solid #ddd; 
+    line-height: 2.5;  
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+.left-column {
+    flex: 70%; 
+  }
+  
+  .right-column {
+    flex: 30%; 
+  }

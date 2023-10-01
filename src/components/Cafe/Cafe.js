@@ -1,18 +1,20 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 
+import "./Cafe.css"
+
 function Cafe({ cafe }) {
   if (!cafe) {
-    return null; // Don't render anything if cafe is not selected
+    return null;
   }
 
   return (
-    <Card className="cafe-details">
-      <h2>{cafe.nombre}</h2>
-      <p>{cafe.fecha}</p>
-      <p>{cafe.imagen}</p>
-      <p>{cafe.notas}</p>
-      <p>{cafe.altura}</p>
+    <Card className="cafe-card">
+      <p style={{ fontSize: "18px", fontWeight: "900", marginBottom: "0" }}>{cafe.nombre}</p>
+      <p style={{ fontSize: "14px", fontWeight: "300" }}>{cafe.fecha}</p>
+      <img src={cafe.imagen} alt={cafe.nombre} width="200" height="150" /> 
+      <p style={{ fontSize: "18px", fontWeight: "300" }}>{cafe.notas}</p>
+      <p style={{ fontSize: "18px", fontWeight: "900" }}>{cafe.altura}</p>
     </Card>
   );
 }
