@@ -29,3 +29,13 @@ tr:last-child {
   .right-column {
     flex: 30%; 
   }
+
+  .table-row-hover {
+    cursor: pointer; 
+  }
+
+  .table-style tbody tr:hover {
+    background-color: #e5e5e5; 
+    cursor: pointer; 
+    font-weight: 550;
+  }

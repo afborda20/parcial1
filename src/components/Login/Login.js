@@ -18,13 +18,36 @@ function Login() {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = () => {
-        const isValid = true;
-        
-        if (isValid && password.length > 0) {
-          navigate(`/home`); 
-        }else{
-            setError('Error de autenticación. Revise sus credenciales');
+    const handleSubmit = async () => {
+        const credentials = {
+          login: usuario,
+          password: password,
+        };
+      
+        try {
+          const response = await fetch("http://localhost:3001/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(credentials),
+          });
+      
+          if (response.ok) {
+            navigate(`/home`);
+          } else {
+            setError("Error de autenticación. Revise sus credenciales");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          setError("Error de autenticación. Revise sus credenciales");
+        }
+      };
+
+      const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault(); 
+          handleSubmit();  
         }
       };
 
@@ -41,6 +64,8 @@ function Login() {
                             type="usuario" 
                             onChange={(e) => setUsuario(e.target.value)}
                             className="form-control"
+                            onKeyDown={handleKeyDown}
+
                         />
                     </Form.Group>
                 </Form>
@@ -54,6 +79,7 @@ function Login() {
                     className="form-control"
                     type="password" 
                     onChange={(e) => setPassword(e.target.value)}
+                    onKeyDown={handleKeyDown}
                     />
                     </Form.Group>
                 </Form>

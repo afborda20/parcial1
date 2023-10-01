@@ -6,4 +6,6 @@
     box-shadow: 0 4px 8px rgba(0, 4, 4, 0); 
     border: 1px solid #000; 
     align-items: center;
+    padding: 20px;
+    height: 340px;
 }

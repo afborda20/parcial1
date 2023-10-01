@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Cafe from "../Cafe/Cafe";
 import './Home.css'; 
 import Row from "react-bootstrap/Row";
@@ -7,38 +7,21 @@ import Col from "react-bootstrap/Col";
 
 
 function Home(){
-  const [cafes] = useState([
-    {
-      nombre: "Cafe 1",
-      tipo: "Blend",
-      region: "Antioquia",
-      fecha: "2019-03-26",
-      imagen: "imagen de cafe",
-      notas: "Panela y caramelo",
-      altura: "1920 msnm",
-    },
-    {
-        nombre: "Cafe 2",
-        tipo: "Blend",
-        region: "Antioquia",
-        fecha: "2019-03-26",
-        imagen: "imagen de cafe",
-        notas: "Panela y caramelo",
-        altura: "1920 msnm",
-    },
-    {
-        nombre: "Cafe 3",
-        tipo: "Blend",
-        region: "Antioquia",
-        fecha: "2019-03-26",
-        imagen: "imagen de cafe",
-        notas: "Panela y caramelo",
-        altura: "1920 msnm",
-    },
-  ]);
-
-
+  const [cafes, setCafes] = useState([]);
   const [selectedCafe, setSelectedCafe] = useState(null);
+
+  useEffect(() => {
+    const apiUrl = "http://localhost:3001/cafes"; 
+
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setCafes(data);
+      })
+      .catch((error) => {
+        console.error("No se encontro la información:", error);
+      });
+  }, []);
 
   const handleCafeClick = (cafe) => {
     setSelectedCafe(cafe);
@@ -58,7 +41,7 @@ function Home(){
             </thead>
             <tbody>
             {cafes.map((cafe, index) => (
-                <tr key={index} onClick={() => handleCafeClick(cafe)}>
+                <tr key={index} onClick={() => handleCafeClick(cafe)} className="table-row-hover">
                   <th scope="row">{index + 1}</th>
                   <td>{cafe.nombre}</td>
                   <td>{cafe.tipo}</td>
@@ -69,7 +52,7 @@ function Home(){
         </table>
         </Col>
         <Col className="right-column">
-            <Cafe cafe= {selectedCafe}></Cafe>
+          <Cafe id={selectedCafe ? selectedCafe.id : null} />
         </Col>
 
     </Row>
