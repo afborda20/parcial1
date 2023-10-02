@@ -4,7 +4,7 @@ import './Home.css';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-
+import { FormattedMessage } from 'react-intl';
 
 function Home(){
   const [cafes, setCafes] = useState([]);
@@ -34,9 +34,9 @@ function Home(){
             <thead className="thead-style">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Región</th>
+                <th scope="col"><FormattedMessage id="Nombre"/></th>
+                <th scope="col"><FormattedMessage id="Tipo"/></th>
+                <th scope="col"><FormattedMessage id="Región"/></th>
             </tr>
             </thead>
             <tbody>

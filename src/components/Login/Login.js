@@ -10,6 +10,7 @@ import Card from "react-bootstrap/Card";
 
 import "./Login.css";
 
+import { FormattedMessage } from 'react-intl';
 
 function Login() {
 
@@ -53,10 +54,10 @@ function Login() {
 
   return (
     <div className="login-content">
-     <Row className="login-container"><Col><strong>Inicio de sesión</strong></Col></Row>
+     <Row className="login-container"><Col><strong><FormattedMessage id="Inicio"/></strong></Col></Row>
      <Row className="login-container">
         <Card className="login-card">
-            <Row><Col><strong>Nombre de usuario</strong></Col></Row>
+            <Row><Col><strong><FormattedMessage id="Usuario"/></strong></Col></Row>
             <Row>
                 <Form>
                     <Form.Group controlId="usuarioInput">
@@ -70,7 +71,7 @@ function Login() {
                     </Form.Group>
                 </Form>
             </Row>
-            <Row><Col><strong>Contraseña</strong></Col></Row>
+            <Row><Col><strong><FormattedMessage id="Contraseña"/></strong></Col></Row>
             <Row>
                 <Col className = "mb-2">
                 <Form>
@@ -86,12 +87,16 @@ function Login() {
                 </Col>
             </Row>
             <Row>
-                <Col><Button variant= "primary" className="green-button" onClick={handleSubmit}>Ingresar</Button></Col>
-                <Col><Button variant= "primary" className="red-button">Cancelar</Button></Col>
+                <Col><Button variant= "primary" className="green-button" onClick={handleSubmit}><FormattedMessage id="Ingresar"/></Button></Col>
+                <Col><Button variant= "primary" className="red-button"><FormattedMessage id="Cancelar"/></Button></Col>
             </Row>
             <Row>
                 <Col>
-                    <p className="error-message">{error}</p>
+                    {error && ( // Check if there is an error
+                      <p className="error-message">
+                        <FormattedMessage id="Error" />
+                      </p>
+                    )}
                 </Col>
             </Row>
         </Card>

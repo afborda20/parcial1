@@ -4,6 +4,9 @@ import Col from 'react-bootstrap/Col';
 
 import "./Footer.css"
 
+import { FormattedMessage } from 'react-intl';
+
+
 function Footer(){
 
     return(
@@ -11,7 +14,7 @@ function Footer(){
         <div className="mt-4">
              <Row>
                 <Col fluid className="footer-text text-center">
-                    Contact us: +57 3102105253 - info@elaromamagico.com - @elaromamagico
+                    <FormattedMessage id="Contacto"/>
                 </Col>
             </Row>
        </div> 
